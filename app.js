@@ -199,6 +199,6 @@ app.post('/registerimpl', (req,res)=>{
         }
     });
    
-    const chart = require('./routes/chart');
+    const cust = require('./routes/cust');
     app.use('/cust', cust);
 });

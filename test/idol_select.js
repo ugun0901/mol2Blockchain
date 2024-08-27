@@ -3,6 +3,7 @@ var db_sql = require('../db/db_sql');
 conn = db_connect.getConnection();
 
 
+
 conn.query(db_sql.idol_select, function (e, result, fields) {
     try{
         if(e){

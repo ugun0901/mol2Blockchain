@@ -20,7 +20,7 @@ router
                 throw e;
             }else{
                 console.log(result);
-                goto.go(req,res,{'centerpage':'rank', 'ranks':ranks});
+                goto.go(req,res,{'centerpage':'rank', 'ranks':result});
             }
         }
         catch(e){

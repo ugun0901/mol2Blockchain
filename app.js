@@ -6,10 +6,8 @@ require('dotenv').config(); //
 const express=require('express');
 const nunjucks = require('nunjucks'); //
 const bodyParser = require('body-parser')   //body parser 추가 1
-const path = require('path');
 const app = express(); //express라는 객체 생성
 const port = process.env.SERVER_PORT || 3000; //.env안에 있는 server port 정보를 가져와라 default는 3000번
-
 
 // 로그인 처리를 위한 라이브러리
 const session = require('express-session');
@@ -36,7 +34,6 @@ nunjucks.configure('views',{
     express:app,
 });//views라는 폴더를 가지고 html을 쓴다.
 
-app.use(express.static('public'));
 
 app.set('view engine', 'html');
 app.use(bodyParser.urlencoded({extended:false})); //객체 들어감. 추가 2 
@@ -210,7 +207,5 @@ app.post('/registerimpl', (req,res)=>{
     const cust = require('./routes/cust');
     app.use('/cust', cust);
 
-// 게시판 페이지 라우트
-app.get('/board', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'board/board.html'));
-});
+
+

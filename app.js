@@ -198,7 +198,14 @@ app.post('/registerimpl', (req,res)=>{
             db_connect.close(conn);
         }
     });
-   
-    const chart = require('./routes/chart');
-    app.use('/cust', cust);
 });
+
+    const vote = require('./routes/vote');//html은 html.js를 의미
+    app.use('/vote', vote);
+
+   
+    const cust = require('./routes/cust');
+    app.use('/cust', cust);
+
+
+

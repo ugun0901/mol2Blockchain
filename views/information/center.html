@@ -2,9 +2,9 @@
     <div class="row">
         <div class="col-sm-3">
             <ul class="nav nav-pills flex-column">
-              <li class="nav-item">
-              </li>
-         
+                <li class="nav-item">
+                </li>
+
             </ul>
         </div>
         <div class="container text-center">
@@ -28,11 +28,44 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">상세보기</a></div>
+                            <div class="text-center">
+                                <a class="btn btn-outline-dark mt-auto" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#detailModal">상세보기</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
-        
+        {% for i in informations %}
+        <!-- Modal -->
+         <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">상세정보</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Modal body -->
+                         <div class="text-center">
+                            <h5 class="fw-bolder">{{i.name}}</h5>
+                            <div class="info">
+                                생년월일 : {{ i.birth_date }}
+                            </div>
+                            <div class="info">
+                                소속사 : {{ i.agency }}
+                            </div>
+                         </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    
+
+      

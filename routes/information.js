@@ -14,7 +14,7 @@ var goto = require('../util/goto');
 router
     .get("/",(req,res)=>{  
         conn = db_connect.getConnection();
-        conn.query(db_sql.idol_select, function (e, result, fields) {
+        conn.query(db_sql.idol_select_name, function (e, result, fields) {
             try{
                 if(e){
                     console.log('Select Error');

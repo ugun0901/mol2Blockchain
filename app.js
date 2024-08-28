@@ -169,9 +169,6 @@ app.get('/register', (req,res)=>{
 app.get('/about', (req,res)=>{
     goto.go(req,res,{'centerpage':'about'});
 });
-app.get('/rank', (req,res)=>{
-    goto.go(req,res,{'centerpage':'rank'});
-});
 
 app.post('/registerimpl', (req,res)=>{
     let id = req.body.id; //name= let id 
@@ -213,5 +210,4 @@ app.post('/registerimpl', (req,res)=>{
     
     const rank = require('./routes/rank');
     app.use('/rank', rank);
-
 

@@ -2,7 +2,7 @@ var db_connect = require('../db/db_connect');
 var db_sql = require('../db/db_sql');
 conn = db_connect.getConnection();
 
-
+var goto = require('../util/goto');
 
 conn.query(db_sql.idol_select, function (e, result, fields) {
     try{

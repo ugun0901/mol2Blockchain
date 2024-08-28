@@ -211,3 +211,6 @@ app.post('/registerimpl', (req,res)=>{
 
     const information = require('./routes/information');
     app.use('/information', information)
+
+
+

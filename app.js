@@ -203,15 +203,14 @@ app.post('/registerimpl', (req,res)=>{
     const vote = require('./routes/vote');//html은 html.js를 의미
     app.use('/vote', vote);
 
-   
     const cust = require('./routes/cust');
     app.use('/cust', cust);
+
     const rank = require('./routes/rank');
     app.use('/rank', rank)
 
+    const information = require('./routes/information');
+    app.use('/information', information)
 
-    
-    const rank = require('./routes/rank');
-    app.use('/rank', rank);
 
 

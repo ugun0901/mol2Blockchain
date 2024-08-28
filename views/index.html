@@ -43,10 +43,16 @@
                         <li class="nav-item"><a class="nav-link" href="/information">연습생 정보 </a></li>
                         <li class="nav-item"><a class="nav-link" href="/rank">연습생 순위 </a></li>
                         <li class="nav-item"><a class="nav-link" href="/board">게시판 </a></li>
+                        <li class="nav-item">
+                        {% if loginid %}
+                        <a class="nav-link" href="/vote1">투표</a></li>
+                        {% endif %}
+                        
                         {% if loginid == 'admin' %}
                         <li class="nav-item">
                           <a class="nav-link" href="/cust">Cust</a>
                         </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="/vote?id={{loginid}}">관리자관리</a>
                         </li> 

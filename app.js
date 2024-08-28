@@ -170,7 +170,6 @@ app.get('/about', (req,res)=>{
     goto.go(req,res,{'centerpage':'about'});
 });
 
-
 app.post('/registerimpl', (req,res)=>{
     let id = req.body.id; //name= let id 
     let pwd = req.body.pwd;
@@ -213,11 +212,5 @@ app.post('/registerimpl', (req,res)=>{
     const information = require('./routes/information');
     app.use('/information', information)
 
-    const vote1 = require('./routes/vote1');
-    app.use('/vote1', vote1)
-
-      
-
-  
 
 

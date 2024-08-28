@@ -1,80 +1,128 @@
-<div class="container" style="margin-top:30px">
-    <div class="row">
-        <div class="col-sm-3">
-            <ul class="nav nav-pills flex-column">
-                <li class="nav-item">
-                </li>
-            </ul>
-        </div>
-        <div class="container text-center">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                {% for i in informations %}
-                <div class="col-2 mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="/img/{{i.imgname}}" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <h5 class="fw-bolder">{{ i.name }}</h5>
-                                <div class="info">
-                                    생년월일 : {{ i.birth_date }}
-                                </div>
-                                <div class="info">
-                                    소속사 : {{ i.agency }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이돌 정보</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .image-container img {
+            width: 450px;
+            height: 600px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="margin-top:30px">
+        <div class="row">
+            <div class="col-sm-3">
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+            <div class="container text-center">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    {% for i in informations %}
+                    <div class="col-2 mb-5">
+                        <div class="card h-100">
+                            <!-- Product image -->
+                            <img class="card-img-top" src="/img/{{ i.imgname }}" alt="..." />
+                            <!-- Product details -->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <h5 class="fw-bolder">{{ i.name }}</h5>
+                                    <div class="info">
+                                        생년월일 : {{ i.birth_date }}
+                                    </div>
+                                    <div class="info">
+                                        소속사 : {{ i.agency }}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center">
-                                <a class="btn btn-outline-dark mt-auto" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#detailModal{{ forloop.counter }}">상세보기</a>
+                            <!-- Product actions -->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" data-bs-toggle="modal"
+                                        data-bs-target="#detailModal{{ forloop.counter }}" data-name="{{ i.name }}">정보보기</a>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
-        </div>
 
-        {% for i in informations %}
-        <!-- Modal -->
-        <div class="modal fade" id="detailModal{{ forloop.counter }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ forloop.counter }}" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel{{ forloop.counter }}">상세정보</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body d-flex">
-                        <div class="image-container me-3">
-                            <img class="card-img-top" src="/img/{{i.imgname}}" alt="..." style="width: 450px; height: 600px; object-fit: cover;" />
+            <!-- Modal -->
+            {% for i in informations %}
+            <div class="modal fade" id="detailModal{{ forloop.counter }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ forloop.counter }}" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel{{ forloop.counter }}">상세정보</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="text-container">
-                            <div class="text-start">
-                                <h4 class="fw-bolder mb-3">{{i.name}}</h4>
-                                <div class="info mb-2">
-                                    <strong>생년월일:</strong> {{ i.birth_date }}
-                                </div>
-                                <div class="info">
-                                    <strong>소속사:</strong> {{ i.agency }}
-                                </div>
-                                <div class="info">
-                                    <strong>취미:</strong> {{ i.hobby }}
-                                </div>
-                                <div class="info">
-                                    <strong>특기:</strong> {{ i.specialty }}
-                                </div>
-                                <div class="info">
-                                    <strong>각오:</strong> {{ i.comment }}
+                        <div class="modal-body d-flex" data-name="{{ i.name }}">
+                            <div class="image-container me-3">
+                                <img class="card-img-top" src="/img/{{ i.imgname }}" alt="..." />
+                            </div>
+                            <div class="text-container">
+                                <div class="text-start">
+                                    <h4 class="fw-bolder mb-3">{{ i.name }}</h4>
+                                    <div class="info mb-2">
+                                        <strong>생년월일:</strong> {{ i.birth_date }}
+                                    </div>
+                                    <div class="info">
+                                        <strong>소속사:</strong> {{ i.agency }}
+                                    </div>
+                                    <div class="info">
+                                        <strong>취미:</strong> {{ i.hobby }}
+                                    </div>
+                                    <div class="info">
+                                        <strong>특기:</strong> {{ i.specialty }}
+                                    </div>
+                                    <div class="info">
+                                        <strong>각오:</strong> {{ i.comment }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
-</div>
+
+    <!-- JavaScript -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const modalButtons = document.querySelectorAll('a[data-bs-toggle="modal"]');
+        
+        modalButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const name = this.getAttribute('data-name');
+                const modals = document.querySelectorAll('.modal');
+                
+                modals.forEach(modal => {
+                    const modalName = modal.querySelector('.modal-body').getAttribute('data-name');
+                    
+                    if (name === modalName) {
+                        // Show the correct modal
+                        const modalInstance = new bootstrap.Modal(modal);
+                        modalInstance.show();
+                    } else {
+                        // Hide the modal if it's not the correct one
+                        const modalInstance = bootstrap.Modal.getInstance(modal);
+                        if (modalInstance) {
+                            modalInstance.hide();
+                        }
+                    }
+                });
+            });
+        });
+    });
+    </script>
+</body>
+</html>

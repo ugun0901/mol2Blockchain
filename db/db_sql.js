@@ -6,6 +6,6 @@ module.exports = {
     cust_update:'UPDATE cust SET pwd=?, name=?, acc=? WHERE id=?',
     cust_delete:'DELETE FROM cust WHERE id = ?',
 
-    idol_select: 'SELECT id,name,agency,hobby,specialty,comment,imgname,date_format(birth_date, "%Y년%m월%d일") as birth_date FROM idol'
-
+    idol_select: 'SELECT id,name,agency,hobby,specialty,comment,imgname,vote,date_format(birth_date, "%Y.%m.%d") as birth_date FROM idol ORDER BY vote DESC',
+    idol_update :'UPDATE idol SET vote = vote + 1 WHERE id = ?'
 }

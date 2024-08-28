@@ -1,38 +1,51 @@
-<div class="container" style="margin-top:30px">
-    <div class="row">
-        <div class="col-sm-3">
-            <ul class="nav nav-pills flex-column">
-              <li class="nav-item">
-              </li>
-         
-            </ul>
-        </div>
-        <div class="container text-center">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                {% for i in informations %}
-                <div class="col-2 mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="/img/{{i.imgname}}" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <h5 class="fw-bolder">{{ i.name }}</h5>
-                                <div class="info">
-                                    생년월일 : {{ i.birth_date }}
-                                </div>
-                                <div class="info">
-                                    소속사 : {{ i.agency }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이돌 정보</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container" style="margin-top:30px">
+        <div class="row">
+            <div class="col-sm-3">
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item">
+                    </li>
+                </ul>
+            </div>
+            <div class="container text-center">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    {% for i in informations %}
+                    <div class="col-2 mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="/img/{{i.imgname}}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <h5 class="fw-bolder">{{ i.name }}</h5>
+                                    <div class="info">
+                                        생년월일 : {{ i.birth_date }}
+                                    </div>
+                                    <div class="info">
+                                        소속사 : {{ i.agency }}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">상세보기</a></div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">상세보기</a></div>
+                            </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
-        
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

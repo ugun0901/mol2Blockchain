@@ -1,8 +1,7 @@
 <div class="container" style="margin-top:30px">
     <div class="row">
       <div class="col-sm-12">
-        <h2>Login Page</h2>
-        <a href="/board/new" class="btn btn-info" role="button">게시글 작성</a>
+        <h3>게시물 목록</h3>
       </div>
   
     </div>
@@ -11,6 +10,7 @@
 <div class="container" style="margin-top:30px">
     <div class="row">
         <div class="col-sm-3">
+        
             <ul class="nav nav-pills flex-column">
               <li class="nav-item">
               </li>
@@ -20,24 +20,29 @@
         <div class="container text-center">
             <section class="py-5">
                 <div class="container px-4 px-lg-5 mt-5">
-                    <!-- Post a new message -->
-                    
-                   
-                    <!-- Message list -->
-                    <div class="mt-5">
-                        <h3>게시물 목록</h3>
-                        <ul class="list-group">
-                            {% for post in posts %}
-                            <li class="list-group-item">
-                                <h5>{{ post.title }}</h5>
-                                <p>{{ post.content }}</p>
-                                <small>작성자: {{ post.author }} | 작성일: {{ post.date }}</small>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+                    <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th>id</th>
+                            <th>작성자</th>
+                            <th>제목</th>
+                            <th>작성일</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for i in boards %}
+                          <tr>
+                            <td>{{i.id}}</a></td>
+                            <td>{{i.name}}</td>
+                            <td>{{i.title}}</td>
+                            <td>{{i.created_date}}</td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
                 </div>
-                
+                <a href="/board/new" class="btn btn-info" role="button">게시글 작성</a>
+                <a href="#"class="btn btn-info" role="button">게시글 삭제</a>
             </section>
         
         </body>

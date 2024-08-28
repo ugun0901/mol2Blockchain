@@ -207,5 +207,7 @@ app.post('/registerimpl', (req,res)=>{
     const cust = require('./routes/cust');
     app.use('/cust', cust);
 
-
+    
+    const rank = require('./routes/rank');
+    app.use('/rank', rank);
 

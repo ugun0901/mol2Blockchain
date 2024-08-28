@@ -7,6 +7,7 @@ const express=require('express');
 const nunjucks = require('nunjucks'); //
 const bodyParser = require('body-parser')   //body parser 추가 1
 const app = express(); //express라는 객체 생성
+const path = require('path');
 const port = process.env.SERVER_PORT || 3000; //.env안에 있는 server port 정보를 가져와라 default는 3000번
 
 // 로그인 처리를 위한 라이브러리
@@ -205,12 +206,6 @@ app.post('/registerimpl', (req,res)=>{
 
     const cust = require('./routes/cust');
     app.use('/cust', cust);
-
-    const rank = require('./routes/rank');
-    app.use('/rank', rank)
-
-    const information = require('./routes/information');
-    app.use('/information', information)
 
 
 

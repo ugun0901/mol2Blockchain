@@ -19,6 +19,7 @@ router
                 } else {
                     console.log(result);
                     goto.go(req, res, { 'centerpage': 'vote1/center', 'vote1': result });
+                    
                 }
             } catch (e) {
                 console.log(e);
@@ -28,7 +29,7 @@ router
         });
     })
 
-    // 투표 처리
+    // 투표 처리 누르면 +1되게끔
     .post('/voteimpl', (req, res) => {
         const idolId = req.body.id;
         const conn = db_connect.getConnection();

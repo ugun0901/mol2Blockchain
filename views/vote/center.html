@@ -147,11 +147,23 @@
                                           <!-- 투표하기 버튼 -->
                                           <form id="voteForm" action="/vote/voteimpll" method="POST">
                                             <input type="hidden" name="id" value="{{ i.id }}">
+                                            
+                                            <!-- 숨김 처리된 입력 필드 -->
+                                            <input type="text" style="width:400px; display:none;" id="target_acc" 
+                                                      placeholder="Input Target Account" value="0xDa9f186C3Bc9A0a368c0761905c3d927ceb7D9F6"><br>
+                                            
+                                            <input type="number" style="display:none;" id="amount" value="1"><br>
+                                            
+                                            <button type="button" id="send_btn" class="btn btn-info">투표하기</button>
+                                        </form>
+                                        
+                                          <!-- <form id="voteForm" action="/vote/voteimpll" method="POST">
+                                            <input type="hidden" name="id" value="{{ i.id }}">
                                             To:<input type="text" style="width:400px;" id="target_acc" 
                                                       placeholder="Input Target Account" value="0xDa9f186C3Bc9A0a368c0761905c3d927ceb7D9F6"><br>
                                             Amount:<input type="number" id="amount" value="1"><br>
                                             <button type="button" id="send_btn" class="btn btn-info">투표하기</button>
-                                        </form>
+                                        </form> -->
                                         
                                           <!-- <form action="/vote/voteimpll" method="POST">
                                               <input type="hidden" name="id" value="{{ i.id }}">

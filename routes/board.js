@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 var db_connect = require('../db/db_connect');
 var db_sql = require('../db/db_sql');
 
+
 // My util
 var goto = require('../util/goto');
 
@@ -14,14 +15,14 @@ var goto = require('../util/goto');
 router
     .get("/",(req,res)=>{  
         conn = db_connect.getConnection();
-        conn.query(db_sql.idol_select_name, function (e, result, fields) {
+        conn.query(db_sql.board_select, function (e, result, fields) {
             try{
                 if(e){
                     console.log('Select Error');
                     throw e;
                 }else{
                     console.log(result);
-                    goto.go(req,res,{'centerpage':'information/center', 'informations':result});
+                    goto.go(req,res,{'centerpage':'board/center', 'boards':result});
                 }
             }
             catch(e){
@@ -32,6 +33,10 @@ router
             }
             
         });
+       
+    })
+    .get("/new",(req,res)=>{  
+        goto.go(req,res,{'centerpage':'board/new'});
        
     })
    

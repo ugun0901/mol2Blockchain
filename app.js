@@ -169,7 +169,9 @@ app.get('/register', (req,res)=>{
 app.get('/about', (req,res)=>{
     goto.go(req,res,{'centerpage':'about'});
 });
-
+app.get('/eth', (req,res)=>{
+    goto.go(req,res,{'centerpage':'eth'});
+});
 
 app.post('/registerimpl', (req,res)=>{
     let id = req.body.id; //name= let id 
@@ -219,11 +221,3 @@ app.post('/registerimpl', (req,res)=>{
 
     const vote1 = require('./routes/vote1');
     app.use('/vote1', vote1)
-
-
-
-      
-
-  
-
-

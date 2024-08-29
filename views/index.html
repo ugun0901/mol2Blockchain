@@ -47,7 +47,9 @@
                         <li class="nav-item">
                         {% if loginid %}
                             
-                        <a class="nav-link" href="/vote1">투표</a></li>
+                        
+                            <a class="nav-link" href="/vote?id={{loginid}}">투표</a>
+                        </li> 
                             
                         {% endif %}
                         
@@ -56,9 +58,7 @@
                           <a class="nav-link" href="/cust">회원정보</a>
                         </li>
                         
-                        <li class="nav-item">
-                            <a class="nav-link" href="/vote?id={{loginid}}">관리자관리</a>
-                        </li> 
+                        
                         {% endif %}
 
                     </ul>

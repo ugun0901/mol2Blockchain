@@ -26,7 +26,7 @@ router
                     }));
                     console.log(result);
                     goto.go(req,res,{'centerpage':'rank/center', 'ranks':result});
-                   
+
                 }
             }
             catch(e){
